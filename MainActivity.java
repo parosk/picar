@@ -20,10 +20,10 @@ import java.net.URISyntaxException;
 
 public class MainActivity extends android.app.Activity {
 
-    private Socket mSocket;
+    private Socket mSocket; // just copy
     {
         try {
-            mSocket = IO.socket("http://10.132.161.109:8000");
+            mSocket = IO.socket("http://10.132.161.109:8000");//change ip 
         } catch (URISyntaxException e) {}
     }
 
@@ -32,7 +32,7 @@ public class MainActivity extends android.app.Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button mButton1 = (Button) findViewById(R.id.button1);
+        Button mButton1 = (Button) findViewById(R.id.button1); // link button on xml to button in program
         Button mButton2 = (Button) findViewById(R.id.button2);
         Button mButton3 = (Button) findViewById(R.id.button3);
         SeekBar mSeekBar1 = (SeekBar) findViewById(R.id.seekBar1);
@@ -41,12 +41,12 @@ public class MainActivity extends android.app.Activity {
         mButton1.setOnClickListener(new View.OnClickListener() {
 
             @Override
-            public void onClick(View view) {
-                Context context = getApplicationContext();
+            public void onClick(View view) { // thing do inside onClick()
+                Context context = getApplicationContext();//just copy
                 try {
                     JSONObject json = new JSONObject();
-                    json.putOpt("state", 255);
-                    mSocket.emit("servo_control", json.toString());
+                    json.putOpt("state", 255);//this is a json
+                    mSocket.emit("servo_control", json.toString());// servo_control is name of channel ,
 
                 } catch (JSONException ex) {
                     ex.printStackTrace();
